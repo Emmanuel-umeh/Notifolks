@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { constrictAddr } from "../utils";
 import { useDispatch, useSelector } from "react-redux";
 
 const Splash = () => {
@@ -22,20 +20,20 @@ const Splash = () => {
     }
   };
 
-  const onDisconnectWallet = () => {
-    if (walletProvider === "pera") {
-      // connector.killSession();
-      console.log("provider");
-    }
-
-    localStorage.removeItem("walletAddr");
-    localStorage.removeItem("walletProvider");
-
-    setWalletAddr("");
-    setWalletProvider("");
-
-    window.location.reload();
-  };
+  {/*const onDisconnectWallet = () => {*/}
+  {/*  if (walletProvider === "pera") {*/}
+  //     // connector.killSession();
+  //     console.log("provider");
+  //   }
+  //
+  //   localStorage.removeItem("walletAddr");
+  //   localStorage.removeItem("walletProvider");
+  //
+  //   setWalletAddr("");
+  //   setWalletProvider("");
+  //
+  //   window.location.reload();
+  // };
 
   return (
     <div className="pages_cover">

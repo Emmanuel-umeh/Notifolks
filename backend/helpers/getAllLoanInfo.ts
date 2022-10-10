@@ -1,7 +1,7 @@
-import { tokenPairKeys } from "../app";
-import { algodClient, indexerClient} from "../config"
-import { TestnetPoolsKey,getLoanInfo , TestnetTokenPairsKey,TestnetTokenPairs,TestnetReserveAddress,TokenPair
-        ,getOraclePrices,getConversionRate,getPoolInfo,getTokenPairInfo,TestnetOracle,getLoansInfo, LoanInfo } from "../src"
+
+import { indexerClient} from "../config"
+import { TestnetTokenPairsKey,TestnetTokenPairs
+        ,getOraclePrices,getConversionRate,getPoolInfo,getTokenPairInfo,TestnetOracle,getLoansInfo } from "../src"
 
 interface Info{
     loanEscrow:string,
@@ -41,8 +41,8 @@ export async function getAllLoanInfo(accountAddr:string,tokenPairKey:TestnetToke
                     borrowedBalance:Number(loan.borrowBalance)
                 })
             }
-        
-        
+
+
         })
 
         while (nextToken !== undefined) {
@@ -59,8 +59,8 @@ export async function getAllLoanInfo(accountAddr:string,tokenPairKey:TestnetToke
                         borrowedBalance:Number(loan.borrowBalance)
                     })
                 }
-            
-            
+
+
             })
     }
     return AllUserLoan

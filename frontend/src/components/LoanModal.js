@@ -1,20 +1,14 @@
-import algosdk from "algosdk";
 import { useDispatch, useSelector } from "react-redux";
 import {
   constrictAddr,
-  constrictAddrLong,
   MultiSigner,
   MultiSigner2,
-  myAlgoConnect,
   NumberWithCommas,
   SignAlertTxn,
   TokenPairs,
 } from "../utils";
 import * as EmailValidator from "email-validator";
 import React, { useEffect, useState } from "react";
-
-import WalletConnectQRCodeModal from "algorand-walletconnect-qrcode-modal";
-import WalletConnect from "@walletconnect/client";
 import axios from "axios";
 import { HashLoader } from "react-spinners";
 

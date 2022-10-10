@@ -32,59 +32,59 @@ const ConnectWalletModal = () => {
     }
   };
 
-  const onSelectPeraWallet = () => {
-    const connector = new WalletConnect({
-      bridge: "https://bridge.walletconnect.org",
-      qrcodeModal: WalletConnectQRCodeModal,
-    });
-
-    if (!connector.connected) {
-      console.log("Another one");
-      connector.createSession();
-    }
-
-    connector.on("connect", (error, payload) => {
-      if (error) {
-        throw error;
-      }
-
-      console.log("Connected...");
-      const { accounts } = payload.params[0];
-
-      localStorage.setItem("walletAddr", accounts[0]);
-      localStorage.setItem("walletProvider", "pera");
-
-      dispatch({
-        type: "close_connect_wallet_modal",
-      });
-      window.location.reload();
-    });
-
-    connector.on("session_update", (error, payload) => {
-      if (error) {
-        throw error;
-      }
-
-      console.log("Session updated...");
-      const { accounts } = payload.params[0];
-
-      localStorage.setItem("walletAddr", accounts[0]);
-      localStorage.setItem("walletProvider", "pera");
-    });
-
-    connector.on("disconnect", (error, payload) => {
-      if (error) {
-        throw error;
-      }
-
-      console.log("Disconnected...");
-
-      localStorage.removeItem("walletAddr");
-      localStorage.removeItem("walletProvider");
-
-      window.location.reload();
-    });
-  };
+  // const onSelectPeraWallet = () => {
+  //   const connector = new WalletConnect({
+  //     bridge: "https://bridge.walletconnect.org",
+  //     qrcodeModal: WalletConnectQRCodeModal,
+  //   });
+  //
+  //   if (!connector.connected) {
+  //     console.log("Another one");
+  //     connector.createSession();
+  //   }
+  //
+  //   connector.on("connect", (error, payload) => {
+  //     if (error) {
+  //       throw error;
+  //     }
+  //
+  //     console.log("Connected...");
+  //     const { accounts } = payload.params[0];
+  //
+  //     localStorage.setItem("walletAddr", accounts[0]);
+  //     localStorage.setItem("walletProvider", "pera");
+  //
+  //     dispatch({
+  //       type: "close_connect_wallet_modal",
+  //     });
+  //     window.location.reload();
+  //   });
+  //
+  //   connector.on("session_update", (error, payload) => {
+  //     if (error) {
+  //       throw error;
+  //     }
+  //
+  //     console.log("Session updated...");
+  //     const { accounts } = payload.params[0];
+  //
+  //     localStorage.setItem("walletAddr", accounts[0]);
+  //     localStorage.setItem("walletProvider", "pera");
+  //   });
+  //
+  //   connector.on("disconnect", (error, payload) => {
+  //     if (error) {
+  //       throw error;
+  //     }
+  //
+  //     console.log("Disconnected...");
+  //
+  //     localStorage.removeItem("walletAddr");
+  //     localStorage.removeItem("walletProvider");
+  //
+  //     window.location.reload();
+  //   });
+  // };
 
   return (
     <div
